@@ -6,4 +6,5 @@
 
 // $response = file_get_contents("https://example.com");
 $response = file_get_contents("https://randomuser.me/api");
+
 echo $response;

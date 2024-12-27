@@ -50,4 +50,23 @@
 
 /*
     Class 10
+    Add headers to a HTTP request
 */
+
+$ch = curl_init();
+$headers = [
+    "Authorization: Client-ID aL58kfEBsAL5xB1doWZqfj9yHncBArG8ANCEL4fAnyI"
+];
+curl_setopt_array(
+    $ch,
+    [
+        CURLOPT_URL=>"https://api.unsplash.com/photos/random",
+        CURLOPT_RETURNTRANSFER=>true,
+        CURLOPT_HTTPHEADER=>$headers
+    ]
+);
+$response = curl_exec($ch);
+$status_code = curl_getinfo($ch,CURLINFO_HTTP_CODE);
+curl_close($ch);
+echo $status_code,"\n";
+echo $response,"\n";

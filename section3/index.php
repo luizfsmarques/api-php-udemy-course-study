@@ -53,6 +53,50 @@
     Add headers to a HTTP request
 */
 
+// $ch = curl_init();
+// $headers = [
+//     "Authorization: Client-ID aL58kfEBsAL5xB1doWZqfj9yHncBArG8ANCEL4fAnyI"
+// ];
+// curl_setopt_array(
+//     $ch,
+//     [
+//         CURLOPT_URL=>"https://api.unsplash.com/photos/random",
+//         CURLOPT_RETURNTRANSFER=>true,
+//         CURLOPT_HTTPHEADER=>$headers
+//     ]
+// );
+// $response = curl_exec($ch);
+// $status_code = curl_getinfo($ch,CURLINFO_HTTP_CODE);
+// curl_close($ch);
+// echo $status_code,"\n";
+// echo $response,"\n";
+
+
+/* My exercise - Showing the random img into a page view. */
+// $ch = curl_init();
+// $headers = [
+//     "Authorization: Client-ID aL58kfEBsAL5xB1doWZqfj9yHncBArG8ANCEL4fAnyI"
+// ];
+// curl_setopt_array(
+//     $ch,
+//     [
+//         CURLOPT_URL=>"https://api.unsplash.com/photos/random",
+//         CURLOPT_RETURNTRANSFER=>true,
+//         CURLOPT_HTTPHEADER=>$headers
+//     ]
+// );
+// $response = curl_exec($ch);
+// $status_code = curl_getinfo($ch,CURLINFO_HTTP_CODE);
+// curl_close($ch);
+// $data = json_decode($response,true);
+// $img = $data['urls']['small'];
+//Here I close the php tag
+
+/*
+    Class 11
+    Getting the headers of the response
+*/
+
 $ch = curl_init();
 $headers = [
     "Authorization: Client-ID aL58kfEBsAL5xB1doWZqfj9yHncBArG8ANCEL4fAnyI"
@@ -62,11 +106,17 @@ curl_setopt_array(
     [
         CURLOPT_URL=>"https://api.unsplash.com/photos/random",
         CURLOPT_RETURNTRANSFER=>true,
-        CURLOPT_HTTPHEADER=>$headers
+        CURLOPT_HTTPHEADER=>$headers,
+        CURLOPT_HEADER=>true
     ]
 );
 $response = curl_exec($ch);
 $status_code = curl_getinfo($ch,CURLINFO_HTTP_CODE);
+$content_type = curl_getinfo($ch,CURLINFO_CONTENT_TYPE);
+$content_length = curl_getinfo($ch,CURLINFO_CONTENT_LENGTH_DOWNLOAD);
 curl_close($ch);
-echo $status_code,"\n";
-echo $response,"\n";
+
+echo "Status code: " . $status_code, "\n";
+echo "Content type: " . $content_type, "\n";
+echo "Content length: " . $content_length, "\n";
+echo "Response: ". $response, "\n";

@@ -97,26 +97,27 @@
     Getting the headers of the response
 */
 
-$ch = curl_init();
-$headers = [
-    "Authorization: Client-ID aL58kfEBsAL5xB1doWZqfj9yHncBArG8ANCEL4fAnyI"
-];
-curl_setopt_array(
-    $ch,
-    [
-        CURLOPT_URL=>"https://api.unsplash.com/photos/random",
-        CURLOPT_RETURNTRANSFER=>true,
-        CURLOPT_HTTPHEADER=>$headers,
-        CURLOPT_HEADER=>true
-    ]
-);
-$response = curl_exec($ch);
-$status_code = curl_getinfo($ch,CURLINFO_HTTP_CODE);
-$content_type = curl_getinfo($ch,CURLINFO_CONTENT_TYPE);
-$content_length = curl_getinfo($ch,CURLINFO_CONTENT_LENGTH_DOWNLOAD);
-curl_close($ch);
+// $ch = curl_init();
+// $headers = [
+//     "Authorization: Client-ID aL58kfEBsAL5xB1doWZqfj9yHncBArG8ANCEL4fAnyI"
+// ];
+// curl_setopt_array(
+//     $ch,
+//     [
+//         CURLOPT_URL=>"https://api.unsplash.com/photos/random",
+//         CURLOPT_RETURNTRANSFER=>true,
+//         CURLOPT_HTTPHEADER=>$headers,
+//         CURLOPT_HEADER=>true
+//     ]
+// );
+// $response = curl_exec($ch);
+// $status_code = curl_getinfo($ch,CURLINFO_HTTP_CODE);
+// $content_type = curl_getinfo($ch,CURLINFO_CONTENT_TYPE);
+// $content_length = curl_getinfo($ch,CURLINFO_CONTENT_LENGTH_DOWNLOAD);
+// curl_close($ch);
 
-echo "Status code: " . $status_code, "\n";
-echo "Content type: " . $content_type, "\n";
-echo "Content length: " . $content_length, "\n";
-echo "Response: ". $response, "\n";
+// echo "Status code: " . $status_code, "\n";
+// echo "Content type: " . $content_type, "\n";
+// echo "Content length: " . $content_length, "\n";
+// echo "Response: ". $response, "\n";
+

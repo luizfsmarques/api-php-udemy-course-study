@@ -106,8 +106,8 @@
 //     [
 //         CURLOPT_URL=>"https://api.unsplash.com/photos/random",
 //         CURLOPT_RETURNTRANSFER=>true,
-//         CURLOPT_HTTPHEADER=>$headers,
-//         CURLOPT_HEADER=>true
+//         CURLOPT_HTTPHEADER=>$headers, //This is to enable us to pass the request headers. We put the headers into an array.
+//         CURLOPT_HEADER=>true //This is to set up to get the response headers
 //     ]
 // );
 // $response = curl_exec($ch);
@@ -121,3 +121,72 @@
 // echo "Content length: " . $content_length, "\n";
 // echo "Response: ". $response, "\n";
 
+/*
+    Class 12
+    Putting the each header of response, into array
+*/
+
+// $ch = curl_init();
+// $headers = [
+//     "Authorization: Client-ID aL58kfEBsAL5xB1doWZqfj9yHncBArG8ANCEL4fAnyI"
+// ];
+
+// $response_headers = [];
+// // $header_callback = function($ch,$header) use (&$response_headers){ //This only put the header into array
+// //     $len = strlen($header);
+// //     $response_headers[] = $header;
+// //     return $len;
+// // };
+// $header_callback = function($ch,$header) use (&$response_headers){ //Here we put the header's name as key and the header's content as value of array
+//     $len =strlen($header);
+//     $parts = explode(":",$header,2);
+//     if(count($parts)<2)
+//     {
+//         return $len;
+//     }
+//     $response_headers[$parts[0]] = trim($parts[1]);
+//     return $len;
+// };
+// curl_setopt_array(
+//     $ch,
+//     [
+//         CURLOPT_URL=>"https://api.unsplash.com/photos/random",
+//         CURLOPT_RETURNTRANSFER=>true,
+//         CURLOPT_HTTPHEADER=>$headers, 
+//         CURLOPT_HEADERFUNCTION=>$header_callback
+//     ]
+// );
+// $response = curl_exec($ch);
+// $status_code = curl_getinfo($ch,CURLINFO_HTTP_CODE);
+// curl_close($ch);
+
+// echo "Status code: " . $status_code, "\n";
+// print_r($response_headers);
+// echo "Response: ". $response, "\n";
+
+
+/* 
+    Class 13
+    Putting specific request headers required by the API we are using.
+*/
+
+$ch = curl_init();
+$headers = [
+    "Authorization: token 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",
+    "User-Agent: luizfsmarques"
+];
+curl_setopt_array(
+    $ch,
+    [
+        CURLOPT_URL=>"https://api.github.com/user/starred/Xunhor/Xunhor",
+        CURLOPT_RETURNTRANSFER=>true,
+        CURLOPT_HTTPHEADER=>$headers, 
+        // CURLOPT_USERAGENT=> "luizfsmarques",
+    ]
+);
+$response = curl_exec($ch);
+$status_code = curl_getinfo($ch,CURLINFO_HTTP_CODE);
+curl_close($ch);
+
+echo "Status code: " . $status_code, "\n";
+echo "Response: ". $response, "\n";

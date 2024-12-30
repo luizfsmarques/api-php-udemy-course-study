@@ -172,13 +172,13 @@
 
 $ch = curl_init();
 $headers = [
-    // "Authorization: token ",
+    // "Authoriazação aqui
     "User-Agent: luizfsmarques"
 ];
 curl_setopt_array(
     $ch,
     [
-        CURLOPT_URL=>"https://api.github.com/user/starred/Xunhor/Xunhor",
+        CURLOPT_URL=>"https://api.github.com/user/starred/{owner}/{repo}",
         CURLOPT_RETURNTRANSFER=>true,
         CURLOPT_HTTPHEADER=>$headers, 
         // CURLOPT_USERAGENT=> "luizfsmarques",

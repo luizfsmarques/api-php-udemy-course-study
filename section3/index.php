@@ -172,7 +172,7 @@
 
 $ch = curl_init();
 $headers = [
-    "Authorization: token ",
+    // "Authorization: token ",
     "User-Agent: luizfsmarques"
 ];
 curl_setopt_array(

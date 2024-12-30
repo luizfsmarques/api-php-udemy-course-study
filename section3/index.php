@@ -55,7 +55,7 @@
 
 // $ch = curl_init();
 // $headers = [
-//     "Authorization: Client-ID API_KEY"
+//     "Authorization: Client-ID chave"
 // ];
 // curl_setopt_array(
 //     $ch,
@@ -75,7 +75,7 @@
 /* My exercise - Showing the random img into a page view. */
 // $ch = curl_init();
 // $headers = [
-//     "Authorization: Client-ID API_KEY"
+//     "Authorization: Client-ID chave"
 // ];
 // curl_setopt_array(
 //     $ch,
@@ -99,7 +99,7 @@
 
 // $ch = curl_init();
 // $headers = [
-//     "Authorization: Client-ID API_KEY"
+//     "Authorization: Client-ID chave"
 // ];
 // curl_setopt_array(
 //     $ch,
@@ -128,7 +128,7 @@
 
 // $ch = curl_init();
 // $headers = [
-//     "Authorization: Client-ID API_KEY"
+//     "Authorization: Client-ID chave"
 // ];
 
 // $response_headers = [];
@@ -170,23 +170,23 @@
     Putting specific request headers required by the API we are using.
 */
 
-$ch = curl_init();
-$headers = [
-    // "Authoriazação aqui
-    //"Agente de uso aqui"
-];
-curl_setopt_array(
-    $ch,
-    [
-        CURLOPT_URL=>"https://api.github.com/user/starred/{owner}/{repo}",
-        CURLOPT_RETURNTRANSFER=>true,
-        CURLOPT_HTTPHEADER=>$headers, 
-        // CURLOPT_USERAGENT=> "{agente de uso}",
-    ]
-);
-$response = curl_exec($ch);
-$status_code = curl_getinfo($ch,CURLINFO_HTTP_CODE);
-curl_close($ch);
+// $ch = curl_init();
+// $headers = [
+//     // "Authoriazação aqui
+//     //"Agente de uso aqui"
+// ];
+// curl_setopt_array(
+//     $ch,
+//     [
+//         CURLOPT_URL=>"https://api.github.com/user/starred/{owner}/{repo}",
+//         CURLOPT_RETURNTRANSFER=>true,
+//         CURLOPT_HTTPHEADER=>$headers, 
+//         // CURLOPT_USERAGENT=> "{agente de uso}",
+//     ]
+// );
+// $response = curl_exec($ch);
+// $status_code = curl_getinfo($ch,CURLINFO_HTTP_CODE);
+// curl_close($ch);
 
-echo "Status code: " . $status_code, "\n";
-echo "Response: ". $response, "\n";
+// echo "Status code: " . $status_code, "\n";
+// echo "Response: ". $response, "\n";

@@ -55,7 +55,7 @@
 
 // $ch = curl_init();
 // $headers = [
-//     "Authorization: Client-ID aL58kfEBsAL5xB1doWZqfj9yHncBArG8ANCEL4fAnyI"
+//     "Authorization: Client-ID API_KEY"
 // ];
 // curl_setopt_array(
 //     $ch,
@@ -75,7 +75,7 @@
 /* My exercise - Showing the random img into a page view. */
 // $ch = curl_init();
 // $headers = [
-//     "Authorization: Client-ID aL58kfEBsAL5xB1doWZqfj9yHncBArG8ANCEL4fAnyI"
+//     "Authorization: Client-ID API_KEY"
 // ];
 // curl_setopt_array(
 //     $ch,
@@ -99,7 +99,7 @@
 
 // $ch = curl_init();
 // $headers = [
-//     "Authorization: Client-ID aL58kfEBsAL5xB1doWZqfj9yHncBArG8ANCEL4fAnyI"
+//     "Authorization: Client-ID API_KEY"
 // ];
 // curl_setopt_array(
 //     $ch,
@@ -128,7 +128,7 @@
 
 // $ch = curl_init();
 // $headers = [
-//     "Authorization: Client-ID aL58kfEBsAL5xB1doWZqfj9yHncBArG8ANCEL4fAnyI"
+//     "Authorization: Client-ID API_KEY"
 // ];
 
 // $response_headers = [];
@@ -172,7 +172,7 @@
 
 $ch = curl_init();
 $headers = [
-    "Authorization: token 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",
+    "Authorization: token API_KEY",
     "User-Agent: luizfsmarques"
 ];
 curl_setopt_array(

@@ -173,7 +173,7 @@
 $ch = curl_init();
 $headers = [
     // "Authoriazação aqui
-    "User-Agent: luizfsmarques"
+    //"Agente de uso aqui"
 ];
 curl_setopt_array(
     $ch,
@@ -181,7 +181,7 @@ curl_setopt_array(
         CURLOPT_URL=>"https://api.github.com/user/starred/{owner}/{repo}",
         CURLOPT_RETURNTRANSFER=>true,
         CURLOPT_HTTPHEADER=>$headers, 
-        // CURLOPT_USERAGENT=> "luizfsmarques",
+        // CURLOPT_USERAGENT=> "{agente de uso}",
     ]
 );
 $response = curl_exec($ch);

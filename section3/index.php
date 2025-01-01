@@ -195,26 +195,63 @@
 /*
     Class 14
     Setting the HTTP verbs ( request methods)
+    test---->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
+*/
+// $ch = curl_init();
+// $headers = [
+//     "Authorization: ",
+//     "User-agent: "
+// ];
+// curl_setopt_array(
+//     $ch,
+//     [
+//         CURLOPT_URL=>"https://api.github.com/user/starred/devopshydclub/vprofile-project",
+//         CURLOPT_RETURNTRANSFER=>true,
+//         CURLOPT_HTTPHEADER=>$headers,
+//         // CURLOPT_HEADER=>true,
+//         // CURLOPT_CUSTOMREQUEST=>"DELETE"
+//         CURLOPT_CUSTOMREQUEST=>"PUT"
+//     ]
+// );
+// $response = curl_exec($ch);
+// $status_code = curl_getinfo($ch,CURLINFO_HTTP_CODE);
+// curl_close($ch);
+
+// echo $status_code,"\n";
+// echo $response, "\n";
+
+
+/*
+    Class 15
+    Using the method POST and attaching the request body with the POST data
+    To delete repo : DELETE -> /repos/luizfsmarques/Created-from-API
 */
 $ch = curl_init();
 $headers = [
-    "Authorization: ",
-    "User-agent: "
+    "Authorization: token ",
+    "User-Agent: "
 ];
+$payload = json_encode([
+    "name"=> "Created from API",
+    "description"=> "an example API-created repo"
+]);
 curl_setopt_array(
     $ch,
     [
-        CURLOPT_URL=>"https://api.github.com/user/starred/devopshydclub/vprofile-project",
+        CURLOPT_URL=>"https://api.github.com/user/repos",
+        // CURLOPT_URL=>"https://api.github.com/repos/luizfsmarques/Created-from-API", //Endpoint para excluir
         CURLOPT_RETURNTRANSFER=>true,
-        CURLOPT_HTTPHEADER=>$headers,
-        // CURLOPT_HEADER=>true,
-        // CURLOPT_CUSTOMREQUEST=>"DELETE"
-        CURLOPT_CUSTOMREQUEST=>"PUT"
+        CURLOPT_HTTPHEADER=>$headers,   
+        CURLOPT_HEADER=>true,
+        CURLOPT_CUSTOMREQUEST => "POST",
+        // CURLOPT_POST=>true,
+        // CURLOPT_CUSTOMREQUEST => "DELETE",
+        CURLOPT_POSTFIELDS=>$payload,
     ]
 );
 $response = curl_exec($ch);
 $status_code = curl_getinfo($ch,CURLINFO_HTTP_CODE);
-curl_close($ch);
 
-echo $status_code,"\n";
-echo $response, "\n";
+echo "Status code: ". $status_code,"\n";
+echo "Response: \n";
+echo $response,"\n";

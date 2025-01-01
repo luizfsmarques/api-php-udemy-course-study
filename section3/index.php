@@ -190,3 +190,31 @@
 
 // echo "Status code: " . $status_code, "\n";
 // echo "Response: ". $response, "\n";
+
+
+/*
+    Class 14
+    Setting the HTTP verbs ( request methods)
+*/
+$ch = curl_init();
+$headers = [
+    "Authorization: ",
+    "User-agent: "
+];
+curl_setopt_array(
+    $ch,
+    [
+        CURLOPT_URL=>"https://api.github.com/user/starred/devopshydclub/vprofile-project",
+        CURLOPT_RETURNTRANSFER=>true,
+        CURLOPT_HTTPHEADER=>$headers,
+        // CURLOPT_HEADER=>true,
+        // CURLOPT_CUSTOMREQUEST=>"DELETE"
+        CURLOPT_CUSTOMREQUEST=>"PUT"
+    ]
+);
+$response = curl_exec($ch);
+$status_code = curl_getinfo($ch,CURLINFO_HTTP_CODE);
+curl_close($ch);
+
+echo $status_code,"\n";
+echo $response, "\n";
